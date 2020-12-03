@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.box_main_fragment.view.*
 
 class BoxItemAdapter(private val boxList : MutableList<Box>) : RecyclerView.Adapter<BoxItemAdapter.BoxItemViewHolder>() {
     class BoxItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val boxName: TextView = itemView.placeholder_text
+        val boxName: TextView = itemView.box_name
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoxItemViewHolder {

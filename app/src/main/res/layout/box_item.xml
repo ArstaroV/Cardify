@@ -13,7 +13,7 @@
         android:background="@drawable/box_item_drawable"
         />
     <TextView
-        android:id="@+id/placeholder_text"
+        android:id="@+id/box_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="15dp"
