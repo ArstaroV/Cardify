@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/boxMainFragment">
+
+    <fragment
+        android:id="@+id/boxMainFragment"
+        android:name="com.uselesscodeworks.cardify.views.BoxMainFragment"
+        android:label="box_main_fragment"
+        tools:layout="@layout/box_main_fragment" >
+        <action
+            android:id="@+id/action_boxMainFragment_to_vocabularyFragment"
+            app:destination="@id/vocabularyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vocabularyFragment"
+        android:name="com.uselesscodeworks.cardify.views.VocabularyFragment"
+        android:label="vocabulary_fragment"
+        tools:layout="@layout/vocabulary_fragment" />
+</navigation>
