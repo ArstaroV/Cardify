@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vocabel"
+            type="com.uselesscodeworks.cardify.models.Vocabulary"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/source_vocabulary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@{vocabel.sourceVocabulary}"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/target_vocabulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/vocabulary_item_drawable"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/target_vocabulary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@{vocabel.targetVocabulary}"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/source_vocabulary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/vocabulary_item_drawable"
+        android:importantForAutofill="no" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
