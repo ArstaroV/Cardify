@@ -11,6 +11,6 @@ interface BoxDao {
     @Delete
     fun deleteBox(Box: Box)
 
-    @Query("SELECT * FROM box_table ORDER BY id ASC")
+    @Query("SELECT * FROM box_table ORDER BY box_id ASC")
     fun getAllBoxes(): LiveData<List<Box>>
 }

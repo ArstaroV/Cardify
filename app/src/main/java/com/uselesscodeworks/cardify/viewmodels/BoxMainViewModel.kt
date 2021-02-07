@@ -25,11 +25,17 @@ class BoxMainViewModel(private val repository: BoxRepository) : ViewModel() {
 //        }
 //        boxes.value = tempList
     }
-    fun AddBox() {
+    fun AddBox(box: Box) {
         //boxes.value.toMutableList().add(Box("New Box"))
         //boxes.value = boxes.value?.plus(Box("New Box"))
         GlobalScope.launch {
-            repository.addBox(Box("Another Test Box", 420))
+            repository.addBox(box)
+        }
+    }
+
+    fun deleteBox(box : Box) {
+        GlobalScope.launch {
+            repository.deleteBox(box)
         }
     }
 }

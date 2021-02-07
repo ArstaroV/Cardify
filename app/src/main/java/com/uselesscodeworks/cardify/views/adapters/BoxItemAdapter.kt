@@ -30,5 +30,10 @@ class BoxItemAdapter(private val boxList : List<Box>, private val listener: Recy
         holder.binding.boxButton.setOnClickListener {
             listener.OnItemClick(holder.binding.root, boxList[position])
         }
+        holder.binding.boxButton.setOnLongClickListener {
+            listener.OnItemHold(holder.binding.root, boxList[position])
+            return@setOnLongClickListener true
+        }
+
     }
 }
