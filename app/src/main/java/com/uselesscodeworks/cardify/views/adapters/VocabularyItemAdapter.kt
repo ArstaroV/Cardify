@@ -12,7 +12,7 @@ import com.uselesscodeworks.cardify.databinding.VocabularyItemBinding
 import com.uselesscodeworks.cardify.models.Vocabulary
 import kotlinx.android.synthetic.main.vocabulary_item.view.*
 
-class VocabularyItemAdapter(private val vocabulary_list : List<Vocabulary>) : RecyclerView.Adapter<VocabularyItemAdapter.VocabularyItemViewHolder>() {
+class VocabularyItemAdapter(private val vocabulary_list : List<Vocabulary>, private val listener: VocabularyRecyclerViewListener) : RecyclerView.Adapter<VocabularyItemAdapter.VocabularyItemViewHolder>() {
     class VocabularyItemViewHolder(val binding: VocabularyItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val sourceVocabulary: EditText = itemView.source_vocabulary
         val targetVocabulary: EditText = itemView.target_vocabulary
@@ -30,5 +30,15 @@ class VocabularyItemAdapter(private val vocabulary_list : List<Vocabulary>) : Re
 
     override fun onBindViewHolder(holder: VocabularyItemViewHolder, position: Int) {
         holder.binding.vocabel = vocabulary_list[position]
+        holder.binding.sourceVocabulary.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                listener.onLostFocus(vocabulary_list[position], position)
+            }
+        }
+        holder.binding.targetVocabulary.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                //listener.onLostFocus(vocabulary_list[position])
+            }
+        }
     }
 }
