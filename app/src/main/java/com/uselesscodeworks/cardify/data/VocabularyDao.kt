@@ -10,8 +10,10 @@ interface VocabularyDao {
     fun addVocabulary(vocabel : Vocabulary)
     @Delete
     fun deleteVocabulary(vocabel : Vocabulary)
-    @Query("SELECT * FROM vocabulary_table ORDER BY vocabel_id ASC")
+    @Update
+    fun updateVocabulary(vocabel: Vocabulary)
+    @Query("SELECT * FROM vocabulary_table ORDER BY box_vocabel_id ASC")
     fun getAllVocabels(): LiveData<List<Vocabulary>>
-    @Query("SELECT * FROM vocabulary_table WHERE vocabel_id = :boxId")
+    @Query("SELECT * FROM vocabulary_table WHERE box_vocabel_id = :boxId")
     fun getVocabelsByBoxId(boxId : Int): LiveData<List<Vocabulary>>
 }

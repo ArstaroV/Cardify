@@ -12,11 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.uselesscodeworks.cardify.R
 import com.uselesscodeworks.cardify.data.CardifyDatabase
 import com.uselesscodeworks.cardify.data.VocabularyRepository
+import com.uselesscodeworks.cardify.models.Box
+import com.uselesscodeworks.cardify.models.Vocabulary
 import com.uselesscodeworks.cardify.viewmodels.VocabularyViewModel
 import com.uselesscodeworks.cardify.views.adapters.VocabularyItemAdapter
+import com.uselesscodeworks.cardify.views.adapters.VocabularyRecyclerViewListener
+import kotlinx.android.synthetic.main.box_main_fragment.*
 import kotlinx.android.synthetic.main.vocabulary_fragment.*
+import kotlinx.android.synthetic.main.vocabulary_fragment.fab
+import java.text.FieldPosition
 
-class VocabularyFragment : Fragment() {
+class VocabularyFragment : Fragment(), VocabularyRecyclerViewListener {
 
     private lateinit var viewModel: VocabularyViewModel
 
@@ -36,9 +42,17 @@ class VocabularyFragment : Fragment() {
         viewModel.vocabels.observe(viewLifecycleOwner, Observer {vocabels -> vocabulary_list.also{
             it.layoutManager = LinearLayoutManager(requireContext())
             it.setHasFixedSize(true)
-            it.adapter = VocabularyItemAdapter(vocabels)
+            it.adapter = VocabularyItemAdapter(vocabels, this)
         }})
         Toast.makeText(requireContext(), CardifyDatabase.getInstance(requireContext()).selectedBoxId.toString(), Toast.LENGTH_SHORT).show()
+
+        fab.setOnClickListener { view ->
+            viewModel.addVocabulary(Vocabulary("hallo", "bonjour", CardifyDatabase.getInstance(requireContext()).selectedBoxId))
+        }
+    }
+
+    override fun onLostFocus(vocabel: Vocabulary, position: Int) {
+        viewModel.updateVocabulary(vocabel, position)
     }
 
 }

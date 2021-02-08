@@ -24,6 +24,14 @@ class VocabularyRepository(private val vocabularyDao: VocabularyDao) {
         }
     }
 
+    suspend fun updateVocabulary(vocabel: Vocabulary) {
+        coroutineScope {
+            launch {
+                vocabularyDao.updateVocabulary(vocabel)
+            }
+        }
+    }
+
     fun getVocabelsByBoxId(boxId: Int): LiveData<List<Vocabulary>> = vocabularyDao.getVocabelsByBoxId(boxId)
 
     suspend fun getAllVocabels(): LiveData<List<Vocabulary>> = withContext(Dispatchers.IO) {

@@ -46,6 +46,11 @@ class BoxMainFragment : Fragment(), RecyclerViewClickListener {
             it.setHasFixedSize(false)
             it.adapter = BoxItemAdapter(boxes, this)}})
 
+/*
+        fab.setOnClickListener { view ->
+                viewModel.addBox(Box("weiterer test"))
+        }
+*/
     }
 
     override fun OnItemClick(view: View, box: Box) {
@@ -56,6 +61,6 @@ class BoxMainFragment : Fragment(), RecyclerViewClickListener {
     }
 
     override fun OnItemHold(view: View, box: Box) {
-        Toast.makeText(requireContext(), "HOLD WORKS", Toast.LENGTH_SHORT).show()
+        viewModel.deleteBox(box)
     }
 }
