@@ -1,5 +1,7 @@
 package com.uselesscodeworks.cardify.views
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +20,7 @@ import com.uselesscodeworks.cardify.R
 import com.uselesscodeworks.cardify.data.CardifyDatabase
 import com.uselesscodeworks.cardify.data.BoxRepository
 import com.uselesscodeworks.cardify.models.Box
+import com.uselesscodeworks.cardify.views.adapters.AddBoxDialog
 import com.uselesscodeworks.cardify.views.adapters.BoxItemAdapter
 import com.uselesscodeworks.cardify.views.adapters.RecyclerViewClickListener
 import kotlinx.android.synthetic.main.box_dialog.*
@@ -46,11 +49,12 @@ class BoxMainFragment : Fragment(), RecyclerViewClickListener {
             it.setHasFixedSize(false)
             it.adapter = BoxItemAdapter(boxes, this)}})
 
-/*
+
         fab.setOnClickListener { view ->
+            val dialog = AddBoxDialog()
                 viewModel.addBox(Box("weiterer test"))
         }
-*/
+
     }
 
     override fun OnItemClick(view: View, box: Box) {
@@ -61,6 +65,13 @@ class BoxMainFragment : Fragment(), RecyclerViewClickListener {
     }
 
     override fun OnItemHold(view: View, box: Box) {
-        viewModel.deleteBox(box)
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Delete ${box.name}")
+        builder.setMessage("Are you sure you want to delete ${box.name}?")
+        builder.setPositiveButton("Yes") { _, _ ->
+            viewModel.deleteBox(box)
+        }
+        builder.setNegativeButton("No") {_,_ -> }
+        builder.show()
     }
 }

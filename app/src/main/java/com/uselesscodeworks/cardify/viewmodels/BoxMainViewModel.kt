@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 
 class BoxMainViewModel(private val repository: BoxRepository) : ViewModel() {
 
-    private val tempList = mutableListOf<Box>()
     val boxes : LiveData<List<Box>> = repository.getAllBoxes()
 
     init {
