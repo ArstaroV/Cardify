@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment.instantiate
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 //import androidx.navigation.Navigation
@@ -51,8 +53,8 @@ class BoxMainFragment : Fragment(), RecyclerViewClickListener {
 
 
         fab.setOnClickListener { view ->
-            val dialog = AddBoxDialog()
-                viewModel.addBox(Box("weiterer test"))
+            AddBoxDialog().show(requireFragmentManager(), "Add Box")
+                //viewModel.addBox(Box("weiterer test"))
         }
 
     }

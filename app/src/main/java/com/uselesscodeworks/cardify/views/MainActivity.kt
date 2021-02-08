@@ -19,19 +19,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        fab.setOnClickListener{
-            val view = View.inflate(this, R.layout.box_dialog, null)
-
-            val builder = AlertDialog.Builder (this)
-            builder.setView(view)
-
-            val dialog = builder.create()
-            dialog.show()
-            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-            view.add_cancelButton.setOnClickListener{
-                dialog.dismiss()
-            }
-        }
+//        fab.setOnClickListener{
+//            val view = View.inflate(this, R.layout.box_dialog, null)
+//
+//            val builder = AlertDialog.Builder (this)
+//            builder.setView(view)
+//
+//            val dialog = builder.create()
+//            dialog.show()
+//            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+//
+//            view.add_cancelButton.setOnClickListener{
+//                dialog.dismiss()
+//            }
+//        }
     }
 }
