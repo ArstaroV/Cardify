@@ -6,7 +6,7 @@ import com.uselesscodeworks.cardify.models.Box
 @Dao
 interface BoxDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addBox(Box: Box)
+    suspend fun addBox(Box: Box)
 
     @Delete
     fun deleteBox(Box: Box)

@@ -20,6 +20,7 @@ import com.uselesscodeworks.cardify.data.BoxRepository
 import com.uselesscodeworks.cardify.models.Box
 import com.uselesscodeworks.cardify.views.adapters.BoxItemAdapter
 import com.uselesscodeworks.cardify.views.adapters.RecyclerViewClickListener
+import kotlinx.android.synthetic.main.box_dialog.*
 import kotlinx.android.synthetic.main.box_main_fragment.*
 
 class BoxMainFragment : Fragment(), RecyclerViewClickListener {
@@ -45,9 +46,6 @@ class BoxMainFragment : Fragment(), RecyclerViewClickListener {
             it.setHasFixedSize(false)
             it.adapter = BoxItemAdapter(boxes, this)}})
 
-        fab.setOnClickListener { view ->
-                viewModel.AddBox()
-        }
     }
 
     override fun OnItemClick(view: View, box: Box) {

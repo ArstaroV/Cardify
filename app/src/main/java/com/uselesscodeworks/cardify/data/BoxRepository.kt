@@ -1,6 +1,5 @@
 package com.uselesscodeworks.cardify.data
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import com.uselesscodeworks.cardify.models.Box
 import kotlinx.coroutines.coroutineScope
