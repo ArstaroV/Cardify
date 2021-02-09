@@ -1,16 +1,14 @@
 package com.uselesscodeworks.cardify.views
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment.instantiate
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigator
 import androidx.navigation.fragment.findNavController
 //import androidx.navigation.Navigation
 //import androidx.navigation.Navigation.findNavController
@@ -26,6 +24,7 @@ import com.uselesscodeworks.cardify.views.adapters.AddBoxDialog
 import com.uselesscodeworks.cardify.views.adapters.BoxItemAdapter
 import com.uselesscodeworks.cardify.views.adapters.RecyclerViewClickListener
 import kotlinx.android.synthetic.main.box_dialog.*
+import kotlinx.android.synthetic.main.box_dialog.view.*
 import kotlinx.android.synthetic.main.box_main_fragment.*
 
 class BoxMainFragment : Fragment(), RecyclerViewClickListener {
@@ -54,9 +53,8 @@ class BoxMainFragment : Fragment(), RecyclerViewClickListener {
 
         fab.setOnClickListener { view ->
             AddBoxDialog().show(requireFragmentManager(), "Add Box")
-                //viewModel.addBox(Box("weiterer test"))
+            //viewModel.addBox(Box("weiterer test"))
         }
-
     }
 
     override fun OnItemClick(view: View, box: Box) {

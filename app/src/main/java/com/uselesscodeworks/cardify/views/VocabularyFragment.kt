@@ -7,20 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uselesscodeworks.cardify.R
 import com.uselesscodeworks.cardify.data.CardifyDatabase
 import com.uselesscodeworks.cardify.data.VocabularyRepository
-import com.uselesscodeworks.cardify.models.Box
 import com.uselesscodeworks.cardify.models.Vocabulary
 import com.uselesscodeworks.cardify.viewmodels.VocabularyViewModel
 import com.uselesscodeworks.cardify.views.adapters.VocabularyItemAdapter
 import com.uselesscodeworks.cardify.views.adapters.VocabularyRecyclerViewListener
-import kotlinx.android.synthetic.main.box_main_fragment.*
 import kotlinx.android.synthetic.main.vocabulary_fragment.*
 import kotlinx.android.synthetic.main.vocabulary_fragment.fab
-import java.text.FieldPosition
 
 class VocabularyFragment : Fragment(), VocabularyRecyclerViewListener {
 
