@@ -2,14 +2,13 @@ package com.uselesscodeworks.cardify.views.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.uselesscodeworks.cardify.R
 import com.uselesscodeworks.cardify.databinding.BoxItemBinding
 import com.uselesscodeworks.cardify.models.Box
 import kotlinx.android.synthetic.main.box_item.view.*
-import org.w3c.dom.Text
+
 
 class BoxItemAdapter(private val boxList : List<Box>, private val listener: RecyclerViewClickListener) : RecyclerView.Adapter<BoxItemAdapter.BoxItemViewHolder>() {
     class BoxItemViewHolder(val binding : BoxItemBinding) : RecyclerView.ViewHolder(binding.root) {
