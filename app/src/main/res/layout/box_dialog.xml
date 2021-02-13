@@ -27,13 +27,13 @@
 
         <EditText
             android:id="@+id/BoxName"
+            android:textColorHint="@drawable/selector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter a Box Name"
             android:inputType="textPersonName"
             android:textAlignment="center"
-            android:textColorHint="#FFA500"
             app:layout_constraintBottom_toTopOf="@+id/add_fab"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
