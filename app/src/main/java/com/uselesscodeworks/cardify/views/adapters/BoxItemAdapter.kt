@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uselesscodeworks.cardify.R
 import com.uselesscodeworks.cardify.databinding.BoxItemBinding
 import com.uselesscodeworks.cardify.models.Box
-import kotlinx.android.synthetic.main.box_item.view.*
-
+import com.uselesscodeworks.cardify.views.listeners.RecyclerViewClickListener
 
 class BoxItemAdapter(private val boxList : List<Box>, private val listener: RecyclerViewClickListener) : RecyclerView.Adapter<BoxItemAdapter.BoxItemViewHolder>() {
     class BoxItemViewHolder(val binding : BoxItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -27,10 +26,10 @@ class BoxItemAdapter(private val boxList : List<Box>, private val listener: Recy
     override fun onBindViewHolder(holder: BoxItemViewHolder, position: Int) {
         holder.binding.box = boxList[position]
         holder.binding.boxButton.setOnClickListener {
-            listener.OnItemClick(holder.binding.root, boxList[position])
+            listener.onItemClick(holder.binding.root, boxList[position])
         }
         holder.binding.boxButton.setOnLongClickListener {
-            listener.OnItemHold(holder.binding.root, boxList[position])
+            listener.onItemHold(holder.binding.root, boxList[position])
             return@setOnLongClickListener true
         }
 
