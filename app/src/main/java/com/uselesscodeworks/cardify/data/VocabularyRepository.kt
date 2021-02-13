@@ -8,31 +8,32 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class VocabularyRepository(private val vocabularyDao: VocabularyDao) {
-    suspend fun addVocabulary(vocabel: Vocabulary) {
+    suspend fun addVocabulary(vocabulary: Vocabulary) {
         coroutineScope {
             launch {
-                vocabularyDao.addVocabulary(vocabel)
+                vocabularyDao.addVocabulary(vocabulary)
             }
         }
     }
 
-    suspend fun deleteVocabulary(vocabel: Vocabulary) {
+    suspend fun deleteVocabulary(vocabulary: Vocabulary) {
         coroutineScope {
             launch {
-                vocabularyDao.addVocabulary(vocabel)
+                vocabularyDao.deleteVocabulary(vocabulary)
+            }
+        }
+    }
+    
+    suspend fun updateVocabulary(vocabulary: Vocabulary) {
+        coroutineScope {
+            launch {
+                vocabularyDao.updateVocabulary(vocabulary)
             }
         }
     }
 
-    suspend fun updateVocabulary(vocabel: Vocabulary) {
-        coroutineScope {
-            launch {
-                vocabularyDao.updateVocabulary(vocabel)
-            }
-        }
-    }
-
-    fun getVocabelsByBoxId(boxId: Int): LiveData<List<Vocabulary>> = vocabularyDao.getVocabelsByBoxId(boxId)
+    fun getVocabelsByBoxId(boxId: Int): LiveData<List<Vocabulary>> =
+        vocabularyDao.getVocabelsByBoxId(boxId)
 
     suspend fun getAllVocabels(): LiveData<List<Vocabulary>> = withContext(Dispatchers.IO) {
         vocabularyDao.getAllVocabels()

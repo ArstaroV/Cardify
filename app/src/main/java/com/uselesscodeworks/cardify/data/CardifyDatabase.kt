@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.uselesscodeworks.cardify.models.Box
 import com.uselesscodeworks.cardify.models.Vocabulary
 
-@Database(entities = [Box::class, Vocabulary::class], version = 1)
+@Database(entities = [Box::class, Vocabulary::class], version = 1, exportSchema = false)
 abstract class CardifyDatabase : RoomDatabase() {
     abstract fun boxDao(): BoxDao
     abstract fun vocabelDao(): VocabularyDao
@@ -17,6 +17,8 @@ abstract class CardifyDatabase : RoomDatabase() {
         private lateinit var instance: CardifyDatabase
 
         fun getInstance(context: Context?): CardifyDatabase {
+            // instantiate only if it's not already is initialized
+            // singleton behavior
             if (!this::instance.isInitialized) {
                 synchronized(this) {
                     instance = Room.databaseBuilder(
