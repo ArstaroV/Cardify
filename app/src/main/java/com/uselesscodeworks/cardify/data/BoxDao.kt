@@ -1,4 +1,5 @@
 package com.uselesscodeworks.cardify.data
+
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.uselesscodeworks.cardify.models.Box
