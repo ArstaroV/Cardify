@@ -23,7 +23,7 @@ class VocabularyRepository(private val vocabularyDao: VocabularyDao) {
             }
         }
     }
-    
+
     suspend fun updateVocabulary(vocabulary: Vocabulary) {
         coroutineScope {
             launch {
